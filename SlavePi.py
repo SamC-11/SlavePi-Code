@@ -6,6 +6,8 @@ import time
 #Slave address for arduino is 0x04
 address = 0x04
 bus = SMBus(1)
+time.sleep(0.1) #we need to sleep everytime for the smbus to work properly
+#A short delay is needed for i2c to settle
 
 letterMap = {
     " ": 0,
@@ -50,11 +52,15 @@ letterMap = {
 
 
 def writeNumber(value):
+    print(type(value))
     bus.write_byte(address,value)
+    time.sleep(0.1)
+    
     return -1
 
 def readNumber():
     number = bus.read_byte(address)
+    time.sleep(0.1)
     return number
 
 def mapText(text):
@@ -63,6 +69,7 @@ def mapText(text):
 
 def sendText(text):
     numberToSend = mapText(text)
+    print("working here")
     writeNumber(numberToSend)
     print("RPI: ", numberToSend)
     print("Arduino: ", readNumber())
