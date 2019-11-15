@@ -50,7 +50,7 @@ letterMap = {
     ")": 37,
 }
 
-
+    
 def writeNumber(value):
     print(type(value))
     bus.write_byte(address,value)
