@@ -16,7 +16,7 @@ def translate():
         sendText(text)
         
         #put your translate service here
-        return buildResponse(200,"sucess translating text: "+text)
+        return buildResponse(200,"success translating text: "+text)
     except Exception as e:
         return buildResponse(500,str(e))
 
@@ -24,7 +24,7 @@ def translate():
 def clear():
     try:
         #put your clear service here
-        return buildResponse(200,"sucess")
+        return buildResponse(200,"success")
     except Exception as e:
         return buildResponse(500,str(e))
 
@@ -34,4 +34,4 @@ def buildResponse(code,message):
 
 if __name__=='__main__':
     app.debug=True
-    app.run(host='127.0.0.1',port=8181)
+    app.run(host='0.0.0.0',port=8181)
