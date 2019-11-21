@@ -16,7 +16,7 @@ def translate():
         #sendText(text)
         
         #put your translate service here
-        return buildResponse(200,"sucess translating text: "+text)
+        return buildResponse(200,"success translating text: "+text)
     except Exception as e:
         return buildResponse(500,str(e))
 
@@ -25,7 +25,7 @@ def clear():
     try:
         sendText(" ");
         #put your clear service here
-        return buildResponse(200,"sucess")
+        return buildResponse(200,"success")
     except Exception as e:
         return buildResponse(500,str(e))
 
