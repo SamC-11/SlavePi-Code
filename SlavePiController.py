@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request
-#from SlavePi import *
+from SlavePi import *
 
 app = Flask(__name__)
 
@@ -12,8 +12,8 @@ def translate():
         if('text' not in data):
             return buildResponse(400,"invalid request missing text field")
         text=data['text']
-        print(text);
-        #sendText(text)
+        #print(text);
+        sendText(text)
         
         #put your translate service here
         return buildResponse(200,"success translating text: "+text)
@@ -22,7 +22,7 @@ def translate():
 
 @app.route("/clear",methods=['POST'])
 def clear():
-    try:
+    try:                                                                                         
         sendText(" ");
         #put your clear service here
         return buildResponse(200,"success")
